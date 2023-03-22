@@ -94,3 +94,5 @@ const cadastro = () => {
 };
 
 export default cadastro;
+
+
