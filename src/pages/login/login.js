@@ -41,10 +41,9 @@ const login = () => {
 
     if (loginEmail.value === '' || loginSenha.value === '') {
       form.reportValidity();
-
       console.log('preencha');
     } else {
-      fazerLogin(loginEmail.value, loginSenha.value);
+      fazerLogin(loginEmail.value, loginSenha.value); // usar then e catch
       console.log('funciona');
       // window.location.hash = postagem(); // não tá indo
     }

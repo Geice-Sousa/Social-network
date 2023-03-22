@@ -45,6 +45,7 @@ export function observador() { // CHAMEI no login ver como funciona
     }
   });
 }
+
 export function verificarEmail(){
   return sendEmailVerification(auth.currentUser)
     .then(() => {
@@ -81,20 +82,20 @@ export function loginComGoogle() {
   // após fazer a validação do google precisa mandar para pg de login com o firebase ou pode ser com windonw location hash?
 }
 
-// export function verificarEmail(){
-//   return sendEmailVerification(auth.currentUser)
-//     .then(() => {
-//     // Email verification sent!
-//     // eslint-disable-next-line indent
-//     })
-//     .catch((error) => {
-//       console.log(error);
-//     });
-// }
+export function verificarEmail(){
+  return sendEmailVerification(auth.currentUser)
+    .then(() => {
+    // Email verification sent!
+    // eslint-disable-next-line indent
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
 
-// export function loginComGoogle() {
-//   const provider = new GoogleAuthProvider();
-//   console.log(provider);
+export function loginComGoogle() {
+  const provider = new GoogleAuthProvider();
+  console.log(provider);
 
   return signInWithPopup(auth, provider)
     .then((result) => {
@@ -124,4 +125,4 @@ export function deletarUsuaria() {
   }).catch((error) => {
     console.log(error);
   });
-};
+}
