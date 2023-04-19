@@ -1,3 +1,8 @@
+/* eslint-disable default-case */
+/* eslint-disable no-alert */
+// import { ordenaPosts } from './firebase-storage';
+import { auth } from './firebase-auth';
+
 export function maiorDe18(dataNascimento) {
   // verificar se é maior de 18
   const dataAtual = new Date();
@@ -11,38 +16,87 @@ export function maiorDe18(dataNascimento) {
 }
 
 export function exibeErros(erro) {
-  switch (erro) {
+  switch (erro.code) {
     case 'auth/email-already-exists':
-      console.log('este email já está em uso, utilize outro email ou faça login');
-      break;
+      return 'Esse email já foi cadastrado anteriormente, basta fazer o login';
+
     case 'auth/user-not-found':
-      console.log('este usuário não existe, crie um cadastro');
-      break;
+      return 'Este usuário não existe, crie um cadastro';
+
     case 'auth/too-many-requests':
-      console.log('sobrecarga, tente novamente em instantes');
-      break;
+      return 'Houve uma sobrecarga no sistema, tente novamente em alguns instantes';
+
     case 'auth/internal-error':
-      console.log('houve um erro inesperado, tente novemente em instantes');
-      break;
+      return 'Houve um erro inesperado, tente novemente em alguns instantes';
+
     case 'auth/cancelled-popup-request':
-      console.log('solicitação cancelada');
-      break;
+      return 'Solicitação cancelada';
+
     case 'auth/popup-closed-by-user':
-      console.log('a janela de login com Google foi fechada');
-      break;
+      return 'A janela pop-up para o login com Google foi fechada';
+
     case 'auth/wrong-password':
-      console.log('senha incorreta');
-      break;
+      return 'Senha incorreta';
+
     case 'auth/network-request-failed':
-      console.log('houve um problema de conexão com a internet');
-      break;
+      return 'Houve um problema de conexão com a internet';
+
     case 'auth/invalid-email':
-      console.log('o email fornecido é inválido, tente novamente');
-      break;
+      return 'O email fornecido é inválido, tente novamente';
+
     case 'auth/missing-email':
-      console.log('digite um email para fazer login');
-      break;
+      return 'Digite um email para fazer login';
+
+    case 'auth/email-already-in-use':
+      return 'Este email já está sendo usado, faça login ou cadastre outro email';
+
     default:
-      console.log('ocorreu um erro inesperado');
+      return 'ocorreu um erro inesperado';
   }
+} // chamar modal(msg) no return
+
+// export function modal(mensagem) {
+//   console.log(mensagem);
+// }
+
+export function pegaDados(querySnapshot) { // pega tudo o texto publicado pela usuaria na coleção
+  let recebeDados = '';
+  querySnapshot.forEach((doc) => {
+    const publicacao = doc.data(); // cada documento do firebase
+    recebeDados += ` 
+    <div class="postagem-amigas">
+          
+      <section class="postagem-data">
+        <img src="../imagens/mulher-mao-com-uma-taca-de-vinho-transbordando-removebg-preview.png" class="icone-usuaria">
+        <p class="perfil-usuaria">${publicacao.userName}</p>
+        <p class="data-postagem">${publicacao.dataPostagem}</p>
+      </section>
+
+      <div class="postagens">
+        <textarea class="texto-usuaria-postado" id="texto-usuaria-postado" cols="50%" rows="5%" disabled>${publicacao.descricao}</textarea>
+
+        <div class="icones-inferiores">
+          <p class="numero-curtidas"> ${publicacao.curtidas}</p>
+
+          <button class="btn-curtir" data-id="${doc.id}">
+            <i type="button" >🥂</i>
+          </button>
+          ${auth.currentUser.uid === publicacao.userId ? `
+          <button class="btn-excluir">
+            <i class="fa-solid fa-trash-can" type="button" data-id="${doc.id}"></i>
+          </button>
+
+          <button class="btn-editar">
+            <i class="fa-sharp fa-solid fa-pen-to-square" class="btn-editar" type="button" data-id="${doc.id}"></i>
+          </button>` : ''}
+         
+        </div>
+      </div>
+    </div>
+  `;
+  });
+
+  return recebeDados;
 }
+
+// export function mostraData(){ new Date.toLocaleString(), mostra a data com dia mês e ano}

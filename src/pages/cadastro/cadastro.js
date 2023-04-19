@@ -1,17 +1,20 @@
+/* eslint-disable no-console */
 /* eslint-disable no-duplicate-case */
 /* eslint-disable default-case */
 /* eslint-disable padded-blocks */
 /* eslint-disable no-unneeded-ternary */
 /* eslint-disable no-alert */
 /* eslint-disable max-len */
-import { criarCadastro, observador, verificarEmail } from '../../firebase/firebase';
+import { criarCadastro, verificarEmail } from '../../firebase/firebase-auth';
 import { maiorDe18, exibeErros } from '../../firebase/funcoes-acessorias';
 
 const cadastro = () => {
   const criaCadastro = document.createElement('section');
+  criaCadastro.className += 'pagina-cadastro';
   const header = document.querySelector('.header');
   const template = ` 
     <img class="img-fundo" src="imagens/background_mobile_preto-removebg-preview.png" alt="">
+    <img class="img-fundo desktop" src="imagens/background_desktop_preto-removebg-preview" alt="">
     
     <div class="mensagem-cadastro">
       <h3>Bem-vinda à nossa área de cadastro. Por favor, preencha as informações abaixo</h3>
@@ -37,7 +40,11 @@ const cadastro = () => {
         <label for="filhos">Nº de filhas/os</label>
         <input type="tel" name="" id="filhos" required> <!-- tel pq aparece o teclado de nº  -->
         
-        <input class="btn-enviar" type="submit" value="Enviar">
+        <span class="mensagem-erro"></span>
+
+        <input class="btn-enviar-cadastro" type="submit" value="Enviar">
+        
+        <a id="voltar-login" href="#">Voltar ao login</a>
       </form>
     </div>
   `;
@@ -46,6 +53,7 @@ const cadastro = () => {
   criaCadastro.innerHTML = template;
 
   // criação de cadastro com o firebase
+
   const form = criaCadastro.querySelector('.form-cadastro');
   const nome = criaCadastro.querySelector('#nome');
   const dataNascimento = criaCadastro.querySelector('#data');
@@ -53,13 +61,19 @@ const cadastro = () => {
   const inputSenha = criaCadastro.querySelector('#senha');
   const telefone = criaCadastro.querySelector('#tel');
   const filhx = criaCadastro.querySelector('#filhos');
-  // const senha = inputSenha.value; // usar para dizer que tem que ser > 6 caracters
-  const btnEnviar = criaCadastro.querySelector('.btn-enviar');
+  const erroCadastro = criaCadastro.querySelector('.mensagem-erro');
+  const btnEnviar = criaCadastro.querySelector('.btn-enviar-cadastro');
+  const voltarLogin = criaCadastro.querySelector('#voltar-login');
 
-  observador(); // mostra se to conectada a pag
+  voltarLogin.addEventListener('click', () => {
+    window.location.hash = '#login';
+    header.style.display = 'block';
+  });
 
   btnEnviar.addEventListener('click', (e) => {
     e.preventDefault();
+
+    // validações de preenchimemto do form
 
     if (nome.value === '' || dataNascimento.value === ''
         || inputEmail === '' || inputSenha === ''
@@ -68,13 +82,15 @@ const cadastro = () => {
       form.reportValidity();
     } else if (inputSenha.value.length < 6) {
 
-      alert('sua senha precisa ter mais de 6 digítos');
+      erroCadastro.innerHTML = 'sua senha precisa ter mais de 6 digítos';
     } else if (maiorDe18(dataNascimento.value) === false) {
 
-      alert('Infelizmente vc não pode acessar essa plataforma/rede social, ela é destinada para maiores de 18 anos por fazer apologia e incentivar o uso de bebida alcoólica');
+      erroCadastro.innerHTML = 'Infelizmente vc não pode acessar essa plataforma/rede social, ela é destinada para maiores de 18 anos por fazer apologia e incentivar o uso de bebida alcoólica';
     } else {
 
-      criarCadastro(inputEmail.value, inputSenha.value)
+      // criação de cadastro
+
+      criarCadastro(inputEmail.value, inputSenha.value, nome.value)
         .then(() => {
 
           console.log('cadastrou');
@@ -87,13 +103,10 @@ const cadastro = () => {
             });
         })
         .catch((error) => {
-
+          erroCadastro.innerHTML = exibeErros(error);
           console.log(error);
-          exibeErros(error);
-          alert('error, chegou aqui');
         });
     }
-    // se o email já tiver cadastrado: "Esse email já foi cadastrado anteriormente, basta fazer o login"
   });
 
   return criaCadastro;

@@ -6,7 +6,7 @@
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, sendEmailVerification, GoogleAuthProvider, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import { app } from './firebase.config.js';
 
-const auth = getAuth(app);
+export const auth = getAuth(app);
 
 // Firebase Authentication
 
@@ -19,13 +19,14 @@ export function fazerLogin(email, password) {
   return signInWithEmailAndPassword(auth, email, password);
 }
 
-export function observador() { // verifica se tem usuário logado ou não
+export function observador(cb) { // verifica se tem usuário logado ou não
   onAuthStateChanged(auth, (user) => {
     if (user) {
       const uid = user.uid;
       console.log(uid);
+      cb(true);
     } else {
-      return false;
+      cb(false);
     }
   });
 }
@@ -46,18 +47,14 @@ export function loginComGoogle() {
 }
 
 export function sair() {
-  return signOut(auth).then(() => {
-    // saiu
-  }).catch((error) => {
-    console.log(error);
-  });
+  return signOut(auth);
 }
 
 export function nomeUsuaria() {
   const user = auth.currentUser;
   console.log(user);
   if (user){
-    return user.name;
+    return user.displayName;
   }
 }
 
