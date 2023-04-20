@@ -1,19 +1,5 @@
 ## 🌐🖧 Rede Social 🖧🌐
 #  👩🏾‍👧🏾🍷🍇 Mães & vinhos 🍇🍷👩🏽‍👦🏽
-
-## Índice
-
-* [1. Início e protótipos](#1-protótipos)
-* [2. Resumo do projeto](#2-resumo-do-projeto)
-* [3. Objetivos de aprendizagem](#3-objetivos-de-aprendizagem)
-* [4. Considerações gerais](#4-considerações-gerais)
-* [5. Critérios de aceitação mínimos do
-  projeto](#5-criterios-de-aceitação-mínimos-do-projeto)
-* [6. Hacker edition](#6-hacker-edition)
-* [7. Entrega](#7-entrega)
-* [8. Guias, dicas e leituras
-  complementares](#8-guias-dicas-e-leituras-complementares)
-
 ***
 
 ## 1. Início e protótipos 🥂
@@ -35,20 +21,17 @@ também possui versões tablet e desktop, por isso é uma aplicação/página *r
 
 A Rede Social Mães e vinhos é uma rede social feita para mães que gostam de conversar sobre maternidade real acompanhadas de uma boa taça de vinho. Por aqui a emoção é a flor da pele, com lágrimas e risos garantidos. Esse é um espaço de conexão e partilha, criado para trocas reais!
 
-- ### 🍇👪🏾🍷 Abaixo você pode ver Mães & vinhos 🍇👩‍👩‍👦🍷 
+### 🍇👪🏾🍷 Abaixo você pode ver Mães & vinhos 🍇👩‍👩‍👦🍷 
 
-
-  #### versão mobile 
-    <img width="200px" src="src\imagens\localhost_5174_ (2).png">
-    <img width="200px" src="src\imagens\localhost_5174_ (1).png">
-    <img width="200px" src="src\imagens\localhost_5174_ (3).png">
-
-  #### versão desktop
-    <img width="200px" src="src\imagens\localhost_5174_.png">
+  - #### versão mobile 
+      <img width="200px" src="src\imagens\localhost_5174_.png">
     <img width="200px" src="src\imagens\localhost_5174_ (4).png">
     <img width="200px" src="src\imagens\localhost_5174_ (5).png">
 
-
+  - #### versão desktop
+    <img width="200px" src="src\imagens\localhost_5174_ (2).png">
+    <img width="200px" src="src\imagens\localhost_5174_ (1).png">
+    <img width="200px" src="src\imagens\localhost_5174_ (3).png">
 
 ### 👩🏾‍💻 Tecnologias usadas para desenvolver o projeto
   - HTML
@@ -62,5 +45,7 @@ A Rede Social Mães e vinhos é uma rede social feita para mães que gostam de c
   - VSCode
 
 🛰️🎯💼 [Clique para acessar este projeto](https://geice-sousa.github.io/Social-network/)
+
 <br>
+
 👩🏾🎯💼 [Clique para acessar todos o meus repositórios](https://github.com/Geice-Sousa?tab=repositories)
