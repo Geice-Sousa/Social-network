@@ -1,0 +1,735 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	/* font: inherit; */
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+textarea {
+	display: flex;
+}/* ^gerais^ */
+*{
+  box-sizing: border-box;
+  font: inherit;
+}
+body {
+  font-family: "Cagliostro", sans-serif;
+  color: white;
+  background: linear-gradient(180deg, #83152d 8.85%, #ad1d45 88.54%);
+  line-height: 1.5;
+  margin: 5rem 1rem 0rem 1rem;
+  align-items: center;
+}
+.footer, 
+.footer a {
+  text-align: center;
+  color: white;
+  /* margin: 0; */
+}
+.footer a {
+  text-decoration: underline;
+}
+.login-com p a {
+  color: white;
+}
+.footer h5 a:hover{
+  color:#44000d;
+  font-size: large;
+}
+/* ^gerais^ */
+
+.main { 
+  font-size: 1.1rem;
+} 
+.header, .header img{
+  /* display: block; */
+  /* width: 90%; */
+  /* height: auto; */
+  /* margin: auto; */
+} 
+.bckgnd-txt-img, .imagem-footer-login{ 
+  display: none;
+}
+.container-bcg-login{
+  display: flex;
+}
+.caixa-login {
+  width: 25rem;
+  background-color: #44000d;
+  display: flex;
+  flex-direction: column;
+  margin: -1.5rem auto 1.5rem;
+  text-align: center;
+  border-radius: 15px;
+  gap: 2rem;
+}
+
+.form-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.8rem;
+}
+
+.form-login input {
+  background-color: #facfce;
+  width: 12rem;
+  border: 1px ridge;
+  text-align: center;
+}
+
+input[type="submit"] {
+  background-color: #ebafac;
+  border-radius: 5px;
+  border: transparent;
+}
+.login-com {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.login-com p {
+  line-height: 1.5rem;
+  vertical-align: text-bottom;
+}
+
+
+.login-google {
+  text-align: center;
+}
+
+.btn-google {
+  background-color: transparent;
+  border: transparent;
+}
+
+.btn-google img {
+  width: 1.5rem;
+}
+
+input::-webkit-input-placeholder {
+  font-size: 1rem;
+  color: #62615d;
+}
+
+@media screen and (min-width: 769px) {
+  *{
+    padding: 0px;
+    margin: 0px;
+  }
+  .header, .header img{ display: none; } 
+  .bckgnd-txt-img, .imagem-footer-login{ 
+    display: block;
+  }
+  .pagina-login{
+    display: flex;
+    flex-direction: column;
+  }
+ 
+  .container-bcg-login{ 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 1rem;
+    align-items: center;
+    /* margin: auto; */
+
+  }
+  .bckgnd-txt-img,
+  .img-apresentacao{
+    text-align: center;
+    /* margin: auto; */
+    margin-left: 3rem;
+  }
+  .texto-apresentacao{
+    width: 30rem;
+    position: relative;
+    top: -20rem;
+    font-weight: 400;
+    font-size: 1.4rem;
+    vertical-align: middle;
+    line-height: 1.5;
+    margin: auto;
+    left: 5rem;
+  }
+  .caixa-login{ 
+    margin: 3rem;
+    width: 22rem;
+    height: 30rem;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 0rem;
+  }
+  .form-login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 1.8rem;
+    
+  }
+  .form-login input {
+    background-color: #facfce;
+    width: 12rem;
+    height: 2rem;
+    border: 1px ridge;
+    text-align: center;
+  }
+  .input[type=submit]{
+    font-size: initial;
+    width: 5rem;
+    height: 2rem;
+  }
+  .login-com{
+    font-size: large;
+  }
+  .footer{
+    margin-top:-1rem;
+  }
+  .footer-login-desktop{
+    display: flex;
+    justify-content: center;
+    margin-top: -6rem;
+  }
+  .imagem-footer-login{ 
+    text-align: center;
+    width: 8rem;
+    height: 7rem;
+  }
+
+}
+
+/* @media screen and (min-width: 1006px) { 
+  *{
+    padding: 0px;
+    margin: 0px;
+  }
+  .header, .header img{ display: none; } 
+  .bckgnd-txt-img, .imagem-footer-login{ 
+    display: block;
+  }
+  .pagina-login{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .container-bcg-login{ 
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+    align-items: center;
+  }
+  .bckgnd-txt-img{
+    width: 30rem;
+    text-align: center;
+  }
+  .img-apresentacao{
+    width: 60vw;
+    text-align: center;
+  }
+  .texto-apresentacao{
+    width: 30rem;
+    position: absolute;
+    top: 12rem;
+    font-weight: 400;
+    font-size: 1.4rem;
+    vertical-align: middle;
+    line-height: 1.5;
+    margin: auto;
+    left: 5rem;
+  }
+  .caixa-login{ 
+    width: 22rem;
+    height: 30rem;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 0rem;
+  }
+  .form-login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 1.8rem;
+    
+  }
+  .form-login input {
+    background-color: #facfce;
+    width: 14rem;
+    height: 2rem;
+    border: 1px ridge;
+    text-align: center;
+  }
+  .input[type=submit]{
+    font-size: initial;
+    width: 5rem;
+    height: 2rem;
+  }
+  .login-com{
+    font-size: large;
+  }
+  .footer-login-desktop{
+    display: flex;
+    justify-content: center;
+  }
+  .imagem-footer-login{ 
+    text-align: center;
+    width: 10rem;
+    height: 9rem;
+  }
+} */
+/* .header img{
+  display: none;
+} */
+.pagina-cadastro{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  gap: 1rem;
+}
+
+.img-fundo{
+  position: absolute;
+  display: flex;
+  width: 100%;
+  opacity: 40%;
+}
+.caixa-cadastro{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 2;
+  position: relative;
+  width: 80%;
+}
+
+.mensagem-cadastro{
+  text-align: center;
+  line-height: 1.3rem;
+  font-size: 1.2rem;
+  position: relative;
+
+}
+
+.form-cadastro{
+  display: flex;
+  flex-direction: column;
+  font-size: 1.12rem;
+  justify-content: center;
+  width: 80%;
+}
+
+.form-cadastro input{
+  background-color: #FACFCE;
+  border: transparent;
+  border-radius: 1px 15px;
+}
+
+input[type=submit]{ /* .btn-enviar-cadastro */
+  width: 30%;
+  margin: 1rem auto;
+  background-color: #EBAFAC;
+  border-radius: 5px;
+  text-align: center;
+  padding: 0 3px;
+}
+
+.footer{
+  position: relative;
+  top: 1.5rem;
+   /* para deixar em baixo */ 
+}
+
+.cursor-block{
+  cursor: not-allowed;
+}
+
+a{
+  text-align: center;
+  color: black;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+@media screen and (min-width:769px) {
+  body{
+    height: 100vh;
+  }
+  .pagina-cadastro{
+    margin: auto;
+    display: flex;
+    text-align: center;
+    align-items: center;
+  }
+  .mensagem-cadastro h3{
+    font-size: xx-large;
+    line-height: 2rem;
+  }
+  .caixa-cadastro{
+    display: flex;
+    align-items: center;
+    width: 80%;
+    text-align: left;
+  }
+  .form-cadastro{
+    width: 80%;
+    gap: .2rem;
+  }
+  .form-cadastro label{
+    font-size: x-large;
+    font-weight: 600;
+  }
+  .form-cadastro input{
+    height: 2.5rem;
+    border-radius: 1px 15px;
+    font-size: larger;
+  }
+  .btn-enviar-cadastro{
+    font-size: large;
+    font-weight: 700;
+    margin: auto;
+  }
+  /* colocar align itens  center para esticar o form  */
+}
+/* gerais */
+/* html{
+  width: auto;
+} */
+body{
+  margin: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.header, .header img{
+  width: auto;
+}
+/* ^gerais^ */
+
+.imagem-postagem-desktop{ display: none;}
+
+.imagem-desktop{
+  display: none;
+
+} .img-desktop{
+  display: none;
+}
+
+.botao{
+  display: flex;
+  justify-content: flex-end;
+  margin: -5rem 0 2rem 0;
+  /* text-align: center; */
+  /* position: fixed;  */
+  /*  botao aindase mexe */
+}
+.btn-sair {
+  /* display: flex; */
+  /* margin: 1rem; */
+  /* width: auto; */
+  /* height: 1.5rem; */
+  /* padding: .5rem; */
+  text-transform: uppercase;
+  text-align: center;
+  font-size: large;
+  font-weight: bold;
+  font-family: monospace;
+  /* align-items: center; */
+  background-color: #ebafac;
+  border: transparent;
+  border-radius: 5px;
+  /* left: 24rem; */
+  /* top: -18rem; */
+  /* position: fixed; */
+}
+
+.mensagem-ola {
+  text-align: center;
+  font-size: larger;
+}
+
+.paragrafo {
+  /* margin-top: -1rem; */
+  /* margin-bottom: 2rem; */
+}
+
+.novo-post {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  gap: 0.5rem;
+  /* width: 90%; */
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#novo-texto{
+  height: 10rem;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  font-family: "Cagliostro", sans-serif, monospace;
+  text-align: center;
+  background-color: #facfce;
+  border: transparent;
+  gap: 1rem;
+  width: 90%;
+}
+.btn-postar {
+  display: flex;
+  background-color: #ebafac;
+  border: transparent;
+  border-radius: 5px;
+  width: auto;
+  height: 1.5rem; 
+  padding: 5px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: x-large;
+  font-family: monospace;
+  align-items: center;
+  /* margin: auto; */
+  margin-bottom: 1rem;
+}
+
+.postagens-anteriores{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+.postagens {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* postagens publicadas */
+.postagem-amigas{
+  display: flex;
+  background-color: #facfce;
+  border-radius: 5px;
+  flex-direction: column;
+  justify-content: center;
+ 
+  box-sizing: border-box;
+}
+.postagem-data{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.perfil-usuaria, .data-postagem{
+  font-size: 1.15em;
+  font-weight: bold;
+  color: rgb(186, 48, 71);
+}
+.perfil-usuaria{
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+.texto-usuaria-postado{
+  resize: none;
+  width: 90%;
+  height: 8rem;
+  background-color: antiquewhite;
+  flex-grow: 2;
+  margin: 0 1rem; 
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  font-family: "Cagliostro", sans-serif, monospace;
+  box-sizing: border-box;
+  border-radius: 5px; 
+  border-style: none;
+  color: black;
+}
+
+.btn-curtir, .btn-editar, .btn-excluir, .numero-curtidas{
+  display: inline-block;
+  background-color: transparent;
+  border-style: none;
+  /* margin-bottom: 5px; */
+  /* margin-top: 10px; */
+  color: rgb(186, 48, 71);
+}
+.btn-curtir:active, .btn-editar:active{
+  transform: scale(1.2);
+}
+ .icone-usuaria{
+  /* margin: 10px 0px -5px 15px; */
+  width: 10%;
+}
+.icones-inferiores{
+  gap: 1rem;
+  display: flex;
+
+}
+
+
+
+@media screen and (min-width: 769px) {
+  body{
+    height: auto;
+  } 
+  .pagina-postagem{
+    display: flex;
+    /* align-items: center; */
+  }
+  .imagem-postagem-desktop {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-; */
+    align-items: center;
+    /* novo , tem tbm a img que é logo-desktop*/
+    /* gap: 2rem; */
+    /* position: fixed; */
+
+  }
+  .logo-desktop{
+    top: 1rem;
+    left: 2rem;
+  }
+  .img-desktop{  
+    top: 15rem;
+    left: 2rem;
+  }
+  .logo-desktop,
+  .img-desktop{  
+    display: flex;
+   
+    /* position: fixed;  */
+
+  }
+ 
+  .container-txt{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+  }
+  /* .mensagem-ola,  */
+  .paragrafo{
+    text-align: center;
+    margin: 0 auto;
+  }
+  .botao{
+    margin: 0;
+  }
+  .btn-sair{
+    padding: 0 3px;
+  }
+}
+
+/* @media screen and (min-width: 769px) {
+  .icones-inferiores{
+    text-align: center;
+    margin: -.5rem auto;
+  }
+    
+  .desktop{
+    display: block;
+  }
+
+  .imagem-desktop .desktop{
+    display: block;
+
+  } .img-desktop{
+    display: block;
+    width: 25%;
+
+  } 
+  .main div{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; 
+  }
+  .container-txt{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  #postagens-anteriores{
+    flex-direction: column;
+    width: 100%;
+  }
+  .postagem-amigas{
+    width: auto;
+    height: auto;
+  }
+  .header{
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+  } 
+  }
+  .header img{
+    display: inline;
+    width: 20%;
+  }
+   */
+ 
