@@ -183,6 +183,7 @@ input::-webkit-input-placeholder {
   .footer-login-desktop{
     display: flex;
     justify-content: center;
+    margin-top: -6rem;
   }
   .imagem-footer-login{ 
     text-align: center;

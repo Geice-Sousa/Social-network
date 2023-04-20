@@ -37,7 +37,7 @@ export function atualizaEdicao(id, texto) {
 
 export async function curtirPost(id, curtidas) {
   await updateDoc(doc(db, 'postagens', id), {
-    curtidas: curtidas + 1,
+    curtidas: Number(curtidas) + 1,
   });
   // curtidas + 1 });
 
