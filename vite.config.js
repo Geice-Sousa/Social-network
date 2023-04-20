@@ -15,6 +15,7 @@ export default defineConfig(({ command }) => {
       // para o nome/url do seu repositório
       // https://vitejs.dev/guide/static-deploy.html#github-pages
       // ejemplo base: '/social-network/',
+      base: ' ',
       build: {
         minify: false,
         rollupOptions: {

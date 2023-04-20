@@ -1,6 +1,5 @@
 ## 🌐🖧 Rede Social 🖧🌐
 #  👩🏾‍👧🏾🍷🍇 Mães & vinhos 🍇🍷👩🏽‍👦🏽
-***
 
 ## 1. Início e protótipos 🥂
 
@@ -15,7 +14,6 @@ também possui versões tablet e desktop, por isso é uma aplicação/página *r
 <img width="100px" src="src\imagens\print login mobile.PNG">
 <img width="100px" src="src\imagens\print cadastro mobile.PNG">
 <img width="100px" src="src\imagens\print post mobile.PNG">
-
 
 ## 2. Resumo do projeto 🥂
 
@@ -45,7 +43,5 @@ A Rede Social Mães e vinhos é uma rede social feita para mães que gostam de c
   - VSCode
 
 🛰️🎯💼 [Clique para acessar este projeto](https://geice-sousa.github.io/Social-network/)
-
-<br>
 
 👩🏾🎯💼 [Clique para acessar todos o meus repositórios](https://github.com/Geice-Sousa?tab=repositories)
