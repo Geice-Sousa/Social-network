@@ -40,16 +40,15 @@ A Rede Social Mães e vinhos é uma rede social feita para mães que gostam de c
 
   #### versão mobile 
     <img width="200px" src="src\imagens\localhost_5174_ (2).png">
-    <img width="200px" src="src\imagens\localhost_5174_ (1).PNG">
-    <img width="200px" src="src\imagens\localhost_5174_ (3).PNG">
+    <img width="200px" src="src\imagens\localhost_5174_ (1).png">
+    <img width="200px" src="src\imagens\localhost_5174_ (3).png">
 
   #### versão desktop
     <img width="200px" src="src\imagens\localhost_5174_.png">
     <img width="200px" src="src\imagens\localhost_5174_ (4).png">
     <img width="200px" src="src\imagens\localhost_5174_ (5).png">
 
-🍇👪🏾🍷 
-  🍷 🥂 👩‍👩‍👦 😊 👩🏽‍👦🏽👩🏾‍👧🏾
+
 
 ### 👩🏾‍💻 Tecnologias usadas para desenvolver o projeto
   - HTML
@@ -62,7 +61,6 @@ A Rede Social Mães e vinhos é uma rede social feita para mães que gostam de c
   - Jest
   - VSCode
 
-<br>
-
 🛰️🎯💼 [Clique para acessar este projeto](https://geice-sousa.github.io/Social-network/)
+<br>
 👩🏾🎯💼 [Clique para acessar todos o meus repositórios](https://github.com/Geice-Sousa?tab=repositories)
