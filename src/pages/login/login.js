@@ -5,15 +5,17 @@
 /* eslint-disable indent */
 import { fazerLogin, loginComGoogle } from '../../firebase/firebase-auth';
 import { exibeErros } from '../../firebase/funcoes-acessorias';
+import imgApresentacao from '../../imagens/background login.png';
+import iconeGoogle from '../../imagens/icone google.png';
+import imagemFooter from '../../imagens/brinde_taças-removebg-preview.png';
 
 const criarLogin = document.createElement('div');
 criarLogin.className += 'pagina-login';
-
 const login = () => {
   const template = `
   <div class="container-bcg-login">   
     <div class="bckgnd-txt-img">
-      <img class="img-apresentacao" src="./imagens/background login.png" alt="dois cachos de uva diagonalmente opostos com o nome mães e vinhos entre ele">
+      <img class="img-apresentacao" src="${imgApresentacao}" alt="dois cachos de uva diagonalmente opostos com o nome mães e vinhos entre ele">
 
       <h3 class="texto-apresentacao">Seja bem-vinda! Mães e vinhos é uma rede social feita para mães que gostam de conversar sobre maternidade real acompanhadas de uma boa taça de vinho. Por aqui a emoção é a flor da pele, com lágrimas e risos garantidos. Esse é um espaço de conexão e partilha. <br> Junte-se a nós!</h3>
     </div>
@@ -33,7 +35,7 @@ const login = () => {
         <p class="login-google">Login com</p>
 
         <button class="btn-google" type="button">
-          <img src="./imagens/icone google.png" alt="icone google">
+          <img src="${iconeGoogle}" alt="icone google">
         </button>
 
         <p>Ainda não possui cadastro? <br> <a href="/#cadastro">Crie sua conta!</a></p>
@@ -42,7 +44,7 @@ const login = () => {
   </div>
 
   <div class="footer-login-desktop">
-    <img class="imagem-footer-login " src="../imagens/brinde_taças-removebg-preview.png" alt="duas mãos próximas segurando taças com vinho simulando um brinde">
+    <img class="imagem-footer-login " src="${imagemFooter}" alt="duas mãos próximas segurando taças com vinho simulando um brinde">
   </div>
   `;
 
@@ -59,12 +61,10 @@ const login = () => {
     e.preventDefault();
 
     // validação de preenchimento do form
-
     if (loginEmail.value === '' || loginSenha.value === '') {
       form.reportValidity();
     } else {
       // validação das informações para realizar login
-
       fazerLogin(loginEmail.value, loginSenha.value)
       .then(() => {
         window.location.hash = '#postagem';

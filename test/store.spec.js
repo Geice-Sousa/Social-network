@@ -24,6 +24,10 @@ const mockUsuaria = {
   curtidas: [],
 };
 
+// beforeEach(() => {
+//   jest.mockClear();
+// });
+
 it('deve criar um post e guardar na coleção junto com o objeto usuarias', () => {
   dadosUsuaria.mockReturnValueOnce(mockUsuaria);
   addDoc.mockReturnValueOnce(); // isso é fazer um mock de cada função
@@ -52,10 +56,10 @@ it('deveria deletar o post', () => {
   expect(doc).toHaveBeenCalledWith(undefined, 'postagens', '1a2b3c');
 });
 
-it('deveria ordenar os posts pela data', async () => {
-  orderBy.mockResolvedValueOnce();
+it('deveria ordenar os posts pela data', () => {
+  orderBy.mockReturnValueOnce({ });
   query.mockResolvedValue();
-  getDocs.mockResolvedValue();
+  getDocs.mockReturnValue({ });
 
   ordenaPosts();
 
@@ -63,7 +67,7 @@ it('deveria ordenar os posts pela data', async () => {
   expect(orderBy).toHaveBeenCalledWith('dataPostagem', 'desc');
 
   expect(query).toHaveBeenCalledTimes(1);
-  // await expect(query).toHaveBeenCalledWith(undefined, { });
+  expect(query).toHaveBeenCalledWith(undefined, { });
 
   expect(getDocs).toHaveBeenCalledTimes(1);
   expect(getDocs).toHaveBeenCalledWith({});
@@ -91,7 +95,7 @@ it('deveria editar post criado pela usuária', () => {
   expect(doc).toHaveBeenCalledWith(undefined, 'postagens', '1a2b3c');
 });
 
-it('deveria atualizar post editado', async () => {
+it('deveria atualizar post editado', () => {
   updateDoc.mockResolvedValueOnce();
   doc.mockResolvedValueOnce();
   doc.mockClear();
@@ -99,7 +103,7 @@ it('deveria atualizar post editado', async () => {
   atualizaEdicao('1a2b3c', 'texto');
 
   expect(updateDoc).toHaveBeenCalledTimes(1);
-  // await expect(updateDoc).toHaveBeenCalledWith({ }, 'texto');
+  expect(updateDoc).toHaveBeenCalledWith({ }, 'texto');
   expect(doc).toHaveBeenCalledTimes(1);
   expect(doc).toHaveBeenCalledWith(undefined, 'postagens', '1a2b3c');
 });
@@ -115,5 +119,5 @@ it('deveria curtir o post', () => {
   expect(doc).toHaveBeenCalledTimes(1);
   expect(doc).toHaveBeenCalledWith(undefined, 'postagens', '1a2b3c');
   expect(updateDoc).toHaveBeenCalledTimes(1);
-  // expect(updateDoc).toHaveBeenCalledWith(undefined, { curtidas: undefined });
+  expect(updateDoc).toHaveBeenCalledWith(undefined, { curtidas: undefined });
 });

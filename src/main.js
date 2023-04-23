@@ -33,7 +33,6 @@ const redirectLoggedUser = (isLogged) => {
 };
 
 window.addEventListener('load', () => {
-  // console.log('main aqui');
-
+  window.location.hash = ''; // coloquei pq a pag estava ficando buggada sem o iniciaTela() era a fn que chamada o haschange
   observador(redirectLoggedUser);
 });

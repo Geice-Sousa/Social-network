@@ -7,14 +7,16 @@
 /* eslint-disable max-len */
 import { criarCadastro, verificarEmail } from '../../firebase/firebase-auth';
 import { maiorDe18, exibeErros } from '../../firebase/funcoes-acessorias';
+import imgFundo from '../../imagens/background_mobile_preto-removebg-preview.png';
+import imgFundoDesktop from '../../imagens/background_desktop_preto-removebg-preview.png';
 
 const cadastro = () => {
   const criaCadastro = document.createElement('section');
   criaCadastro.className += 'pagina-cadastro';
   const header = document.querySelector('.header');
   const template = ` 
-    <img class="img-fundo" src="imagens/background_mobile_preto-removebg-preview.png" alt="">
-    <img class="img-fundo desktop" src="imagens/background_desktop_preto-removebg-preview" alt="">
+    <img class="img-fundo" src="${imgFundo}" alt="">
+    <img class="img-fundo desktop" src="${imgFundoDesktop}" alt="">
     
     <div class="mensagem-cadastro">
       <h3>Bem-vinda à nossa área de cadastro. Por favor, preencha as informações abaixo</h3>
@@ -38,7 +40,7 @@ const cadastro = () => {
         <input type="tel" name="" id="tel" required>
 
         <label for="filhos">Nº de filhas/os</label>
-        <input type="tel" name="" id="filhos" required> <!-- tel pq aparece o teclado de nº  -->
+        <input type="tel" name="" id="filhos" required> 
         
         <span class="mensagem-erro"></span>
 
@@ -53,7 +55,6 @@ const cadastro = () => {
   criaCadastro.innerHTML = template;
 
   // criação de cadastro com o firebase
-
   const form = criaCadastro.querySelector('.form-cadastro');
   const nome = criaCadastro.querySelector('#nome');
   const dataNascimento = criaCadastro.querySelector('#data');
@@ -74,7 +75,6 @@ const cadastro = () => {
     e.preventDefault();
 
     // validações de preenchimemto do form
-
     if (nome.value === '' || dataNascimento.value === ''
         || inputEmail === '' || inputSenha === ''
           || telefone === '' || filhx.value === '') {
@@ -89,11 +89,8 @@ const cadastro = () => {
     } else {
 
       // criação de cadastro
-
       criarCadastro(inputEmail.value, inputSenha.value, nome.value)
         .then(() => {
-
-          console.log('cadastrou');
           verificarEmail()
             .then(() => {
               alert('Parabéns, seu cadastro foi realizado com sucesso! Agora basta fazer o login');
@@ -104,7 +101,6 @@ const cadastro = () => {
         })
         .catch((error) => {
           erroCadastro.innerHTML = exibeErros(error);
-          console.log(error);
         });
     }
   });

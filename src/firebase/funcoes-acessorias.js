@@ -1,10 +1,10 @@
 /* eslint-disable default-case */
 /* eslint-disable no-alert */
-// import { ordenaPosts } from './firebase-storage';
 import { auth } from './firebase-auth';
+import iconeMao from '../imagens/mulher-mao-com-uma-taca-de-vinho-transbordando-removebg-preview.png';
 
 export function maiorDe18(dataNascimento) {
-  // verificar se é maior de 18
+  // verifica se é maior de 18
   const dataAtual = new Date();
   const idadeAtual = dataNascimento.split('-');
   const anos = dataAtual.getFullYear() - idadeAtual[0];
@@ -53,11 +53,7 @@ export function exibeErros(erro) {
     default:
       return 'ocorreu um erro inesperado';
   }
-} // chamar modal(msg) no return
-
-// export function modal(mensagem) {
-//   console.log(mensagem);
-// }
+}
 
 export function pegaDados(querySnapshot) { // pega tudo o texto publicado pela usuaria na coleção
   let recebeDados = '';
@@ -67,7 +63,7 @@ export function pegaDados(querySnapshot) { // pega tudo o texto publicado pela u
     <div class="postagem-amigas">
           
       <section class="postagem-data">
-        <img src="../imagens/mulher-mao-com-uma-taca-de-vinho-transbordando-removebg-preview.png" class="icone-usuaria">
+        <img src="${iconeMao}" class="icone-usuaria">
         <p class="perfil-usuaria">${publicacao.userName}</p>
         <p class="data-postagem">${publicacao.dataPostagem}</p>
       </section>
@@ -78,16 +74,16 @@ export function pegaDados(querySnapshot) { // pega tudo o texto publicado pela u
         <div class="icones-inferiores">
           <p class="numero-curtidas"> ${publicacao.curtidas}</p>
 
-          <button class="btn-curtir" data-id="${doc.id}">
-            <i type="button" >🥂</i>
+          <button class="btn-curtir" data-id="${doc.id}" title="curtir">
+            <i type="button"  >🥂</i>
           </button>
           ${auth.currentUser.uid === publicacao.userId ? `
           <button class="btn-excluir">
-            <i class="fa-solid fa-trash-can" type="button" data-id="${doc.id}"></i>
+            <i class="fa-solid fa-trash-can" type="button" data-id="${doc.id}" title="excluir"></i>
           </button>
 
           <button class="btn-editar">
-            <i class="fa-sharp fa-solid fa-pen-to-square" class="btn-editar" type="button" data-id="${doc.id}"></i>
+            <i class="fa-sharp fa-solid fa-pen-to-square" class="btn-editar" type="button" data-id="${doc.id}" title="editar"></i>
           </button>` : ''}
          
         </div>
@@ -98,5 +94,3 @@ export function pegaDados(querySnapshot) { // pega tudo o texto publicado pela u
 
   return recebeDados;
 }
-
-// export function mostraData(){ new Date.toLocaleString(), mostra a data com dia mês e ano}

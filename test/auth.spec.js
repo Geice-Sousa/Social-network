@@ -57,14 +57,14 @@ it('deveria mostrar usuaria on/off', () => {
   observador(callback);
 
   expect(onAuthStateChanged).toHaveBeenCalledTimes(1);
-  // expect(onAuthStateChanged).toHaveBeenCalledWith(undefined, () => { });
+  expect(onAuthStateChanged).toHaveBeenCalledWith(undefined, callback);
 });
 
 it('deveria verificar se o email de vericação foi enviado', () => {
-  sendEmailVerification.mockResolvedValue(mockAuth);
+  sendEmailVerification.mockReturnValue(mockAuth);
 
   verificarEmail();
 
   expect(sendEmailVerification).toHaveBeenCalledTimes(1);
-  // expect(sendEmailVerification).toHaveBeenCalledWith(undefined);
+  expect(sendEmailVerification).toHaveBeenCalledWith(undefined);
 });

@@ -8,8 +8,6 @@ import { app } from './firebase.config.js';
 
 export const auth = getAuth(app);
 
-// Firebase Authentication
-
 export function criarCadastro(email, password, name) {
   return createUserWithEmailAndPassword(auth, email, password)
     .then((usuaria) => updateProfile(usuaria.user, { displayName: name }));
@@ -34,8 +32,6 @@ export function observador(cb) { // verifica se tem usuário logado ou não
 export function verificarEmail(){
   return sendEmailVerification(auth.currentUser)
     .then(() => {
-    // Email verification sent!
-    // eslint-disable-next-line indent
     })
     .catch((error) => {
       console.log(error);
@@ -68,6 +64,5 @@ export function dadosUsuaria() {
     dataPostagem: dataPostagem.toLocaleString(),
     curtidas: 0,
   };
-
   return usuaria;
 }

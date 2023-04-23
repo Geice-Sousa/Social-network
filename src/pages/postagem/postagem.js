@@ -7,39 +7,40 @@ import { sair, nomeUsuaria, dadosUsuaria } from '../../firebase/firebase-auth';
 import {
   paraPostar, mostraPostAutomaticamente, deletaPost, editaPost, atualizaEdicao, ordenaPosts, curtirPost, descurtirPost,
 } from '../../firebase/firebase-storage';
-
 import { pegaDados } from '../../firebase/funcoes-acessorias';
+import logoDesktop from '../../imagens/nome logo.png';
+import imgDesktop from '../../imagens/enchendo_taça_de_vinho-removebg-preview.png';
 
 const postagem = () => {
   const header = document.querySelector('.header');
   const criarPostagem = document.createElement('div');
   criarPostagem.className += 'pagina-postagem';
   const template = `
-  <div class="imagem-postagem-desktop">
-    <img class="logo-desktop" src="imagens/nome logo.png" alt="nome mães e vinhos logo">
+    <div class="imagem-postagem-desktop">
+      <img class="logo-desktop" src="${logoDesktop}" alt="nome mães e vinhos logo">
 
-    <img class="img-desktop" src="imagens/enchendo_taça_de_vinho-removebg-preview.png" alt="imagem  de garrafa derramand liquido em uma taça">
-  </div>
-
-  <div class="container-txt">
-    <div class="botao">
-      <button class="btn-sair">Sair</button>
+      <img class="img-desktop" src="${imgDesktop}" alt="imagem  de garrafa derramand liquido em uma taça">
     </div>
-    
-    <div class="postagem">
-      <div class="mensagem-ola">
-        <p class="paragrafo">Olá ${nomeUsuaria()}, seja bem-vinda! <br> O que você deseja compartilhar?</p>
+
+    <div class="container-txt">
+      <div class="botao">
+        <button class="btn-sair">Sair</button>
       </div>
+      
+      <div class="postagem">
+        <div class="mensagem-ola">
+          <p class="paragrafo">Olá ${nomeUsuaria()}, seja bem-vinda! <br> O que você deseja compartilhar?</p>
+        </div>
+      </div>
+
+      <section class="novo-post">
+        <textarea name="novo-texto" id="novo-texto" cols="30%" rows="4%"></textarea>
+        <p class="sem-texto"></p>
+        <button class="btn-postar">Postar</button>
+      </section>
+
+      <div class="postagens-anteriores" id="postagens-anteriores"></div>
     </div>
-
-    <section class="novo-post">
-      <textarea name="novo-texto" id="novo-texto" cols="30%" rows="4%"></textarea>
-      <p class="sem-texto"></p>
-      <button class="btn-postar">Postar</button>
-    </section>
-
-    <div class="postagens-anteriores" id="postagens-anteriores"></div>
-  </div>
     `;
 
   header.style.display = 'block';
@@ -67,7 +68,6 @@ const postagem = () => {
 
       // DELETAR POSTS
       const btnDeletaPost = criarPostagem.querySelectorAll('.btn-excluir');
-
       btnDeletaPost.forEach((btn) => {
         btn.addEventListener('click', (e) => {
           if (window.confirm('Deseja realmente apagar o post?')) {
@@ -79,7 +79,6 @@ const postagem = () => {
       // EDITAR POSTS
       const textoEdicao = criarPostagem.querySelector('#novo-texto');
       const btnEditaPost = criarPostagem.querySelectorAll('.btn-editar');
-
       btnEditaPost.forEach((btn) => {
         btn.addEventListener('click', async (e) => {
           const edit = await editaPost(e.target.dataset.id);
@@ -109,7 +108,6 @@ const postagem = () => {
   const novoTexto = criarPostagem.querySelector('#novo-texto');
   const digiteTexto = criarPostagem.querySelector('.sem-texto');
   const btnPostar = criarPostagem.querySelector('.btn-postar');
-
   btnPostar.addEventListener('click', () => {
     if (editar) {
       atualizaEdicao(id, { descricao: novoTexto.value });

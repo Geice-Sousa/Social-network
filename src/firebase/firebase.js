@@ -2,13 +2,14 @@
 /* eslint-disable eol-last */
 /* eslint-disable no-console */
 /* eslint-disable space-before-blocks */
-// eslint-disable-next-line no-unused-vars, import/order, object-curly-newline
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, sendEmailVerification, GoogleAuthProvider, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
+import {
+  getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword,
+  onAuthStateChanged, sendEmailVerification, GoogleAuthProvider,
+  signInWithPopup, signOut, updateProfile,
+} from 'firebase/auth';
 import { app } from './firebase.config.js';
 
 const auth = getAuth(app);
-
-// Firebase Authentication
 
 export function criarCadastro(email, password, name) {
   return createUserWithEmailAndPassword(auth, email, password)
@@ -33,8 +34,6 @@ export function observador() { // verifica se tem usuário logado ou não
 export function verificarEmail(){
   return sendEmailVerification(auth.currentUser)
     .then(() => {
-    // Email verification sent!
-    // eslint-disable-next-line indent
     })
     .catch((error) => {
       console.log(error);
@@ -47,7 +46,6 @@ export function loginComGoogle() {
 
 export function sair() {
   return signOut(auth).then(() => {
-    // saiu
   }).catch((error) => {
     console.log(error);
   });
@@ -71,6 +69,5 @@ export function dadosUsuaria() {
     dataPostagem: dataPostagem.toLocaleString(),
     curtidas: 0,
   };
-
   return usuaria;
 }
