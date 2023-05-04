@@ -18,24 +18,11 @@ export function fazerLogin(email, password) {
 }
 
 export function observador(cb) { // verifica se tem usuário logado ou não
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      const uid = user.uid;
-      console.log(uid);
-      cb(true);
-    } else {
-      cb(false);
-    }
-  });
+  onAuthStateChanged(auth, cb);
 }
 
 export function verificarEmail(){
-  return sendEmailVerification(auth.currentUser)
-    .then(() => {
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+  return sendEmailVerification(auth.currentUser);
 }
 
 export function loginComGoogle() {

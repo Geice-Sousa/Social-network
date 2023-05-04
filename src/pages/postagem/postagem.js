@@ -101,7 +101,11 @@ const postagem = () => {
           console.log(curtidas);
         });
       });
-    });
+    })
+      .catch((error) => {
+        console.log(error);
+        alert('Não foi possível carregar os posts, verifique o acesso a internet e tente novamente');
+      });
   };
 
   // ENVIA OS POSTS PARA ARMAZENAR NO CONSOLE DO FIREBASE

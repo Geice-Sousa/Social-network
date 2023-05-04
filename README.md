@@ -1,7 +1,7 @@
 ## 🌐🖧 Rede Social 🖧🌐
 #  👩🏾‍👧🏾🍷🍇 Mães & vinhos 🍇🍷👩🏽‍👦🏽
 
-## 1. Início e protótipos 🥂
+## 🥂 Início e protótipos 🥂
 
 As redes sociais invadiram nossas vidas. Há redes sociais de todo tipo para todos os tipos de interesse. Por isso, o terceiro projeto criado no bootcamp da Laboratoria foi o desenvlvimento de uma do zero!
 Esta é uma rede social criada para mães que desejam falar de maternidade real e para dicas e impressões sobre vinhos. 
@@ -15,23 +15,27 @@ também possui versões tablet e desktop, por isso é uma aplicação/página *r
 <img width="100px" src="src\imagens\print cadastro mobile.PNG">
 <img width="100px" src="src\imagens\print post mobile.PNG">
 
-## 2. Resumo do projeto 🥂
+## 🥂 Resumo do projeto 🥂
 
 A Rede Social Mães e vinhos é uma rede social feita para mães que gostam de conversar sobre maternidade real acompanhadas de uma boa taça de vinho. Por aqui a emoção é a flor da pele, com lágrimas e risos garantidos. Esse é um espaço de conexão e partilha, criado para trocas reais!
 
 ### 🍇👪🏾🍷 Abaixo você pode ver Mães & vinhos 🍇👩‍👩‍👦🍷 
 
-  - #### versão mobile 
+  - #### na versão mobile 
       <img width="200px" src="src\imagens\localhost_5174_.png">
     <img width="200px" src="src\imagens\localhost_5174_ (4).png">
     <img width="200px" src="src\imagens\localhost_5174_ (5).png">
 
-  - #### versão desktop
+  - #### na versão desktop
     <img width="200px" src="src\imagens\localhost_5174_ (2).png">
     <img width="200px" src="src\imagens\localhost_5174_ (1).png">
     <img width="200px" src="src\imagens\localhost_5174_ (3).png">
 
-### 👩🏾‍💻 Tecnologias usadas para desenvolver o projeto
+### 🥂 Feedbacks das usuárias 🥂
+
+  <img src="src/imagens/feedback.png" width="900px">
+
+## 👩🏾‍💻 Tecnologias usadas para desenvolver o projeto
   - HTML
   - CSS
   - JavaScript
@@ -41,6 +45,7 @@ A Rede Social Mães e vinhos é uma rede social feita para mães que gostam de c
   - Vercel 
   - Jest
   - VSCode
+  - Google Forms
 
 🛰️🎯💼 [Clique para acessar este projeto](https://geice-sousa.github.io/Social-network/)
 

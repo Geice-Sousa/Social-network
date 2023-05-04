@@ -58,7 +58,7 @@ it('deveria deletar o post', () => {
 
 it('deveria ordenar os posts pela data', () => {
   orderBy.mockReturnValueOnce({ });
-  query.mockResolvedValue();
+  query.mockReturnValue({ });
   getDocs.mockReturnValue({ });
 
   ordenaPosts();
@@ -70,7 +70,7 @@ it('deveria ordenar os posts pela data', () => {
   expect(query).toHaveBeenCalledWith(undefined, { });
 
   expect(getDocs).toHaveBeenCalledTimes(1);
-  expect(getDocs).toHaveBeenCalledWith({});
+  expect(getDocs).toHaveBeenCalledWith({ });
 });
 
 it('deveria mostrar posts assim que são realizados', () => {
@@ -97,7 +97,7 @@ it('deveria editar post criado pela usuária', () => {
 
 it('deveria atualizar post editado', () => {
   updateDoc.mockResolvedValueOnce();
-  doc.mockResolvedValueOnce();
+  doc.mockReturnValueOnce({ });
   doc.mockClear();
 
   atualizaEdicao('1a2b3c', 'texto');

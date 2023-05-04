@@ -2,8 +2,7 @@
 // importamos apenas oq vamos a testear
 import {
   createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, signInWithPopup, signOut,
-  onAuthStateChanged, sendEmailVerification,
-  // getAuth,
+  onAuthStateChanged, sendEmailVerification, getAuth,
 } from 'firebase/auth';
 
 import {
@@ -17,10 +16,10 @@ const nome = 'Usuaria Sobrenome';
 const email = 'usuaria@email.com';
 const senha = '123456';
 
-const mockAuth = { user: { } };
+const mockCurrentUser = { user: { } };
 it('deveria criar um cadastro', async () => {
   // createUserWithEmailAndPassword.mockClear(); se for usar mais de 1x
-  createUserWithEmailAndPassword.mockResolvedValue(mockAuth);
+  createUserWithEmailAndPassword.mockResolvedValue(mockCurrentUser);
   updateProfile.mockReturnValue();
 
   await criarCadastro(email, senha, nome);
@@ -28,7 +27,7 @@ it('deveria criar um cadastro', async () => {
   expect(createUserWithEmailAndPassword).toHaveBeenCalledTimes(1);
   expect(createUserWithEmailAndPassword).toHaveBeenCalledWith(undefined, email, senha);
   expect(updateProfile).toHaveBeenCalledTimes(1);
-  expect(updateProfile).toHaveBeenCalledWith(mockAuth.user, { displayName: nome });
+  expect(updateProfile).toHaveBeenCalledWith(mockCurrentUser.user, { displayName: nome });
 });
 
 it('deveria fazer login', () => {
@@ -51,17 +50,17 @@ it('deveria fazer o logout', () => {
 });
 
 it('deveria mostrar usuaria on/off', () => {
-  onAuthStateChanged.mockResolvedValue();
-
   const callback = jest.fn();
   observador(callback);
 
   expect(onAuthStateChanged).toHaveBeenCalledTimes(1);
-  expect(onAuthStateChanged).toHaveBeenCalledWith(undefined, callback);
+  expect(onAuthStateChanged).toHaveBeenCalledWith(undefined, expect.any(Function)); // espera que seja uma função com letra maiuscula para dizer que é o tipo
 });
 
 it('deveria verificar se o email de vericação foi enviado', () => {
-  sendEmailVerification.mockReturnValue(mockAuth);
+  sendEmailVerification.mockReturnValue(mockCurrentUser);
+  // mockar get auth
+  getAuth.mockReturnValue({ });
 
   verificarEmail();
 

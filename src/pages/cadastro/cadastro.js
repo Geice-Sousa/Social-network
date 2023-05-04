@@ -81,10 +81,8 @@ const cadastro = () => {
 
       form.reportValidity();
     } else if (inputSenha.value.length < 6) {
-
       erroCadastro.innerHTML = 'sua senha precisa ter mais de 6 digítos';
     } else if (maiorDe18(dataNascimento.value) === false) {
-
       erroCadastro.innerHTML = 'Infelizmente vc não pode acessar essa plataforma/rede social, ela é destinada para maiores de 18 anos por fazer apologia e incentivar o uso de bebida alcoólica';
     } else {
 
@@ -93,9 +91,9 @@ const cadastro = () => {
         .then(() => {
           verificarEmail()
             .then(() => {
-              alert('Parabéns, seu cadastro foi realizado com sucesso! Agora basta fazer o login');
-              console.log('email de confirmação enviado');
-              window.location.hash = '';
+              // alert('Parabéns, seu cadastro foi realizado com sucesso! Agora basta fazer o login');
+              // console.log('email de confirmação enviado');
+              // window.location.hash = '';
               header.style.display = 'block';
             });
         })
