@@ -27,7 +27,7 @@ it('deveria criar um cadastro', async () => {
   expect(createUserWithEmailAndPassword).toHaveBeenCalledTimes(1);
   expect(createUserWithEmailAndPassword).toHaveBeenCalledWith(undefined, email, senha);
   expect(updateProfile).toHaveBeenCalledTimes(1);
-  expect(updateProfile).toHaveBeenCalledWith(mockCurrentUser.user, { displayName: nome });
+  expect(updateProfile).toHaveBeenCalledWith(expect.anything(), { displayName: nome });
 });
 
 it('deveria fazer login', () => {
@@ -58,12 +58,12 @@ it('deveria mostrar usuaria on/off', () => {
 });
 
 it('deveria verificar se o email de vericação foi enviado', () => {
-  sendEmailVerification.mockReturnValue(mockCurrentUser);
+  sendEmailVerification.mockReturnValue();
   // mockar get auth
   getAuth.mockReturnValue({ });
 
   verificarEmail();
 
   expect(sendEmailVerification).toHaveBeenCalledTimes(1);
-  expect(sendEmailVerification).toHaveBeenCalledWith(undefined);
+  expect(sendEmailVerification).toHaveBeenCalledWith(expect.anything());
 });

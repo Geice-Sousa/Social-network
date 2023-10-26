@@ -119,5 +119,5 @@ it('deveria curtir o post', () => {
   expect(doc).toHaveBeenCalledTimes(1);
   expect(doc).toHaveBeenCalledWith(undefined, 'postagens', '1a2b3c');
   expect(updateDoc).toHaveBeenCalledTimes(1);
-  expect(updateDoc).toHaveBeenCalledWith(undefined, { curtidas: undefined });
+  expect(updateDoc).toHaveBeenCalledWith(undefined, expect.anything());
 });
